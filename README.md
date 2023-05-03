@@ -3,11 +3,12 @@
 **Author Name**: *Odai Al-Obeidat*
 
 ### WRRC
-![Movies Library -WRRC](./Movie%20Data/Movies%20Library%20-%20WRRC.jpg)
+![Movies Library -WRRC](./Movie%20Data/3rd%20party.jpg)
 
 
 
 ### Overview
+working on Movies-Library 
 
 ### Getting Started
 **Steps to building and running similar app:**
@@ -31,6 +32,7 @@
 
 ### Project Features
 
-- We use ```'/'``` as a path to the Home Page
-- We use ```'/favorite'``` as a path to the Favorite Page
--  We use ```'*'``` as a path to error (status 500) and error (status 404)
+- We use ```/trending``` To access the trending movies on the movie db 
+- We use ```/search``` To search for a specific movie name in the movie db
+-  We use ```/movies-theatres``` To access the theatres movies on the movie db 
+-  We use ```/movies-popular``` To access the popular movies on the movie db 
