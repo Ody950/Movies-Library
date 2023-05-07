@@ -1,0 +1,8 @@
+
+DROP TABLE IF EXISTS moveiAdd;
+
+CREATE TABLE IF NOT EXISTS moveiAdd (
+    id SERIAL PRIMARY KEY,
+   title VARCHAR(300),
+   comments  VARCHAR(300)
+); 

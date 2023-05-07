@@ -3,7 +3,7 @@
 **Author Name**: *Odai Al-Obeidat*
 
 ### WRRC
-![Movies Library -WRRC](./Movie%20Data/3rd%20party.jpg)
+![Movies Library -WRRC](./Movie%20Data/WRRC%20PG.jpg)
 
 
 
@@ -29,6 +29,27 @@ working on Movies-Library
     - Thunder client
     - Postman
   
+1. Install pg library. ```npm i pg```
+2. Require pg library in your server. ```const pg = require('pg');```
+3. Create an obj from Client and pass the URL of postgresql server.
+   const ```client = new pg.Client('postgresql://localhost:5432/demo15')```
+4. Connect the server with demo15 database. client.connect()
+5. ```psql -d demo15 -f schema.sql```
+6. If you want to read data from post request method, use this middleware: ```server.use(express.json())```
+
+
+
+
+start postgerSQl server : ```sqlstart```
+stop postgerSQl server : ```sqlstop```
+_______________________________________
+Open postgerSQL shell server (SSL mode) : ```psql```
+1. List all databases : ```\l```
+2. Switch to another database :```\c <db-name>```
+3. List database tables : ```\dt```
+4. Describe a table :```\d <table-name>```
+    - try " ```SELECT * FROM table-name```
+5. Quit : ```\q```
 
 ### Project Features
 
