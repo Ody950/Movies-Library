@@ -12,7 +12,7 @@ const pg = require('pg');
 
 const apKey = process.env.APIkey;
 const client = new pg.Client(process.env.DATABASE_URL)
-const PORT = 3001;
+const PORT = 3000;
 server.use(express.json())
 
 
@@ -32,6 +32,16 @@ server.get('/movies-popular', popularMov);
 server.post('/getMovies', addMovie);
 //SQL
 server.get('/getMovies', fromDatabase);
+
+
+//UPDATE
+server.put('/UPDATE/:id', movieUpdat);
+//delete
+server.delete('/DELETE/:id', deletMovie);
+//get movie 
+server.get('/getMovie/:id', getMov)
+
+
 
 
 
@@ -155,6 +165,83 @@ function fromDatabase(req, res){
     console.log('sorry you have something error',error)
     res.status(500).send(error);})
 }
+
+
+
+
+//Lab16
+
+function movieUpdat(req, res) {
+
+  const {id} = req.params;
+
+  const sql = `UPDATE moveiAdd SET comments = $1 WHERE id=${id};`;
+  const {comments} = req.body;
+  const values = [comments];
+  client.query(sql, values)
+  .then((upd) =>{
+  res.send("The data has been updated successfully")
+
+  })
+  .catch((error)=>{
+    errorHandler(error,req,res)
+})
+}
+
+
+function deletMovie(req, res){
+
+const {id}= req.params;
+const sql = `DELETE FROM moveiAdd WHERE id=${id};`;
+
+client.query(sql)
+.then((delM)=>{
+res.send("The data has been deleted successfully")
+
+})
+.catch((error)=>{
+  errorHandler(error,req,res)
+})
+}
+
+
+function getMov(req, res){
+  const {id}= req.params;
+  const sql2 = `SELECT * FROM moveiAdd WHERE id=${id};`;
+  client.query(sql2)
+  .then((data1)=>{
+    res.send(data1.rows);
+  })
+  .catch((error)=>{
+    console.log('sorry you have something error',error)
+    res.status(500).send(error);})
+}
+
+
+
+
+//second way to get request to get a specific movie from the database by using query      <<<<<<<<<<
+
+
+// server.get('/getMov', getMov)
+// function getMov(req, res){
+//   const {id}= req.query;
+//   const sql2 = `SELECT * FROM moveiAdd WHERE id=${id};`;
+//   client.query(sql2)
+//   .then((data1)=>{
+//     res.send(data1.rows);
+//   })
+//   .catch((error)=>{
+//     console.log('sorry you have something error',error)
+//     res.status(500).send(error);})
+// }
+
+
+
+
+
+
+
 
 server.get('*', (req, res) => {
   res.status(404).send({
