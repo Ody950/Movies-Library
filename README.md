@@ -57,3 +57,8 @@ Open postgerSQL shell server (SSL mode) : ```psql```
 - We use ```/search``` To search for a specific movie name in the movie db
 -  We use ```/movies-theatres``` To access the theatres movies on the movie db 
 -  We use ```/movies-popular``` To access the popular movies on the movie db 
+
+- We use ```/UPDATE/:id``` To update movies information on the database  
+- We use ```/DELETE/:id``` To delete movies information on the database  
+-  We use ```/getMovie/:id``` To access movies information on the database  
+
