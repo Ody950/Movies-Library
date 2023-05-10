@@ -12,7 +12,7 @@ const pg = require('pg');
 
 const apKey = process.env.APIkey;
 const client = new pg.Client(process.env.DATABASE_URL)
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 server.use(express.json())
 
 
